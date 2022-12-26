@@ -10,8 +10,8 @@
 
 #pragma once
 
-#define NKAI_PATHFINDER_TRACE_LEVEL 0
-#define NKAI_TRACE_LEVEL 0
+#define NKAI_PATHFINDER_TRACE_LEVEL 1
+#define NKAI_TRACE_LEVEL 2
 
 #include "../../../lib/CPathfinder.h"
 #include "../../../lib/mapObjects/CGHeroInstance.h"
@@ -55,6 +55,8 @@ struct AIPathNode : public CGPathNode
 		return accessible == CGPathNode::EAccessibility::NOT_SET
 			|| accessible == CGPathNode::EAccessibility::BLOCKED;
 	}
+
+	void addSpecialAction(std::shared_ptr<const SpecialAction> action);
 };
 
 struct AIPathNodeInfo
